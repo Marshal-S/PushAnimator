@@ -54,26 +54,26 @@ typedef NS_ENUM(NSUInteger, LSTranstionType) {
     }];
     
     //下面通过截图大法模拟动画,比较适合复杂一些的动画
-    UIView *fromView = [fromVc.view snapshotViewAfterScreenUpdates:YES];
-    UIView *toView = [toVc.view snapshotViewAfterScreenUpdates:YES];
-
-    CGFloat width = fromView.frame.size.width;
-    CGFloat height = fromView.frame.size.height;
-
-    fromView.frame = CGRectMake(0, 0, width, height);
-    toView.frame = CGRectMake(-width, 0, width, height);
-
-    [containerView addSubview:fromView];
-    [containerView addSubview:toView];
-
-    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-        fromView.frame = CGRectMake(width, 0, width, height);
-        toView.frame = CGRectMake(0, 0, width, height);
-    } completion:^(BOOL finished) {
-        [fromView removeFromSuperview];
-        [toView removeFromSuperview];
-        [transitionContext completeTransition:YES];
-    }];
+//    UIView *fromView = [fromVc.view snapshotViewAfterScreenUpdates:YES];
+//    UIView *toView = [toVc.view snapshotViewAfterScreenUpdates:YES];
+//
+//    CGFloat width = fromView.frame.size.width;
+//    CGFloat height = fromView.frame.size.height;
+//
+//    fromView.frame = CGRectMake(0, 0, width, height);
+//    toView.frame = CGRectMake(-width, 0, width, height);
+//
+//    [containerView addSubview:fromView];
+//    [containerView addSubview:toView];
+//
+//    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+//        fromView.frame = CGRectMake(width, 0, width, height);
+//        toView.frame = CGRectMake(0, 0, width, height);
+//    } completion:^(BOOL finished) {
+//        [fromView removeFromSuperview];
+//        [toView removeFromSuperview];
+//        [transitionContext completeTransition:YES];
+//    }];
 }
 
 - (void)outWithTranstion:(nullable id<UIViewControllerContextTransitioning>)transitionContext {

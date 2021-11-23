@@ -16,8 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    //这么设置可以左滑退出
 }
 
 - (IBAction)push:(id)sender {
@@ -26,20 +24,16 @@
 //    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:vc.view.frame];
 //    scrollView.contentSize = CGSizeMake(10000, 20000);
 //    [vc.view addSubview:scrollView];
-    [vc.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)]];
+    [vc.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pop:)]];
     [self push:vc animation:UIViewAnimationOptionTransitionFlipFromRight];
 //    [self present:vc animation:UIViewAnimationOptionTransitionFlipFromRight];
+    
 //    [self.navigationController pushViewController:vc animated:YES];
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
-- (void)tap:(UITapGestureRecognizer *)sender {
-    sender.view.backgroundColor = [UIColor redColor];
-    return;
-    UIViewController *vc = [UIViewController new];
-    vc.view.backgroundColor = UIColor.yellowColor;
-    [vc.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(push)]];
-    [self.navigationController pushViewController:vc animated:YES];
-//    [self push:vc animation:UIViewAnimationOptionTransitionFlipFromLeft];
+- (void)pop:(UITapGestureRecognizer *)sender {
+    [self popWithAnimation:UIViewAnimationOptionTransitionFlipFromLeft];
+//    [self dismissWithAnimation:UIViewAnimationOptionTransitionFlipFromLeft];
 }
 @end
