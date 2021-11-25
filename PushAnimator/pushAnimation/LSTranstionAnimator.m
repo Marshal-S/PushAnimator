@@ -74,6 +74,12 @@ typedef NS_ENUM(NSUInteger, LSTranstionType) {
 //        [toView removeFromSuperview];
 //        [transitionContext completeTransition:YES];
 //    }];
+    
+    //使用animation的时候需要设置代理,这样就可以得到动画开始结束的时机了
+//    CABasicAnimation *basic;
+//    basic.delegate = self;
+//    - (void)animationDidStart:(CAAnimation *)anim;
+//    - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag;
 }
 
 - (void)outWithTranstion:(nullable id<UIViewControllerContextTransitioning>)transitionContext {
